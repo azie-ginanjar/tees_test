@@ -330,3 +330,7 @@ my_awesome_project/media/
 .env
 .envs/*
 !.envs/.local/
+
+# file: ~/.gitignore_global
+.DS_Store
+.idea
