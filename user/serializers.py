@@ -22,7 +22,7 @@ class UserWithoutPasswordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("username", "first_name", "last_name", "email", "profile_picture")
+        fields = ("id", "username", "first_name", "last_name", "email", "profile_picture")
 
 
 class UserUpdatableFieldSerializer(serializers.ModelSerializer):

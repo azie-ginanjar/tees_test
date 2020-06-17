@@ -167,6 +167,9 @@ class GetAllUsersTest(BaseViewTest):
             # pop password, since we don't return password from our API
             serialized.data[i].pop('password')
 
+            # pop id from response, since we don't get id from data fetched from db
+            response.data[i].pop('id')
+
             self.assertEqual(serialized.data[i], response.data[i])
 
             if expected_picture:

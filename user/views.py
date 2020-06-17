@@ -1,7 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.shortcuts import render
 
-# Create your views here.
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 
@@ -10,6 +8,7 @@ from user.serializers import UserSerializer, UserWithoutPasswordSerializer, User
 User = get_user_model()
 
 
+# Create your views here.
 class UserRegisterView(generics.CreateAPIView):
     """
     Register new user

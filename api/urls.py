@@ -25,21 +25,22 @@ from rest_framework_simplejwt import views as jwt_views
 from drf_yasg.views import get_schema_view
 
 schema_view = get_schema_view(
-   openapi.Info(
-      title="Amika Backend API",
-      default_version='v1',
-      description="Amika Backend",
-      terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
-      license=openapi.License(name="BSD License"),
-   ),
-   public=True,
-   permission_classes=(permissions.AllowAny,),
+    openapi.Info(
+        title="Tees API",
+        default_version='v1',
+        description="Tees Backend",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="contact@snippets.local"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   re_path('api/(?P<version>(v1|v2))/users/', include('user.urls')),
+                  re_path('api/(?P<version>(v1|v2))/shirt/', include('shirt.urls')),
                   url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT, }),
                   path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
                   path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
